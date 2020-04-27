@@ -1,0 +1,92 @@
+Part 3: Code Example for Formation & Destruction of Execution Stack
+
+In the last post, I described the order of formation and destruction of the Execution stack. Now, let's understand it with a code example to make it more clear
+
+Here's the code sample that I will be using here
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/ujalak1812/Blogs/master/images/img5.png" alt="JavaScript Code Sample" />
+</p>
+
+
+The above code produces the following result in the console. 
+
+<p align="center">
+    <br>
+    <img src="https://raw.githubusercontent.com/ujalak1812/Blogs/master/images/img6.PNG" alt="Result of the code Sample" />
+    <br><br>
+</p>
+
+Now, let's understand what is happening behind the scenes by breaking down the above code into simple chunks.
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/ujalak1812/Blogs/master/images/img7.PNG" alt="Global Context of Code Sample" />
+    <br>
+</p>
+
+This code is in the global scope. Diagramatically,
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/ujalak1812/Blogs/master/images/img8.png" alt="Global Context figure" />
+    <br>
+    <strong><em>figure 1 : Global Execution Context</em></strong>
+    <br>
+</p>
+
+When the program's execution is started, first, line 1 is logged to the console. Then on line 2, a function call named func1( ) is encountered. The execution flow moves inside func1 without going to line 3. Since a function call is encountered, a new execution context associated with func1 is formed and is placed on top of the global context. Diagrammatically;
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/ujalak1812/Blogs/master/images/img9.png" alt="Execution Stack containing func1's context" />
+    <br>
+    <strong><em>figure 2 : func1( )'s Execution Context Stacked on global one</em></strong>
+    <br><br>
+</p>
+
+This new execution context is containing only the code for func1, i.e. lines 6,7 and 8. 
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/ujalak1812/Blogs/master/images/img10.PNG" alt="func1's context in code sample" />
+    <br>
+</p>
+
+First, line 6 is logged onto the console. Then on line 7,  a new function call to func2( ) is encountered. The flow is now moved inside func2 without executing line 8. As a result, another execution context associated with func2 is formed and is placed on top of the func1's execution context. Diagrammatically;
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/ujalak1812/Blogs/master/images/img11.png" alt="Execution Stack containing func2's context as well" />
+    <br>
+    <strong><em>func2( )'s Execution Context Stacked on func1( )'s</em></strong>
+    <br>
+</p>
+
+This new execution context is containing only the code for func2. i.e.
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/ujalak1812/Blogs/master/images/img12.PNG" alt="" />
+    <br>
+</p>
+
+So line 12 is logged on to the console completing the func2's execution and the flow returns back to func1(). Since the flow is returned after completing the execution of func2, the execution context for func2 is removed from the Execution stack. So, the execution stack becomes the same as figure 2.
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/ujalak1812/Blogs/master/images/img9.png" alt="Execution Stack containing func1's context" />
+    <br>
+    <strong><em>func2( )'s execution context removed</em></strong>
+    <br>
+</p>
+
+Now the execution flow returns to func1 on line 8. Line 8 is logged on to the console completing the execution of func1 and the flow is returned to global scope, removing the execution context of func1 from the execution stack. So, the execution stack becomes the same as figure 1.
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/ujalak1812/Blogs/master/images/img8.png" alt="Global Context figure" />
+    <br>
+    <strong><em>func1( )'s execution context removed</em></strong>
+    <br>
+</p>
+
+In the global scope, the flow returns to line 3, executes it, and logs line 3 on to the console. 
+
+So that's all for the execution stack. I hope now it makes sense that how the execution stack is formed and destroyed.
+
+In the next post, I will be explaining the execution context in detail. How it is formed and what does it contain. ðŸ’»
+
+Till then, you may leave your queries and suggestions in the comments below.ðŸ˜Š
