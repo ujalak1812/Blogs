@@ -1,4 +1,5 @@
 ##### <p align="center"><em>***** This blog post is part of the series on *****<br><strong>JavaScript : ES6</strong></em></p>
+##### <p align="center"><em>Originally Published at</em> [https://dev.to/ujalak1812](https://dev.to/ujalak1812/the-3-ways-of-declaring-variables-in-javascript-3hoe)
 
 # 3 Ways of Declaring Variables in JavaScript
 
